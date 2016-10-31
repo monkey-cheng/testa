@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+  <head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		  *{
+				padding:0;margin:0;
+			}
+
+		</style>
+		<script ></script>
+	</head>
+	<body >
+     
+	</body>
+	<script>
+	   //call方法的应用：改变函数内的this指针的指向
+     // function fn1(arg1,arg2){
+		   // console.log(this)
+			 // console.log(arg1+" "+arg2);
+		 // }
+		 //fn1("111","abc");
+		 // var str="藏龙岛";
+		 // fn1.call(str,"111","abc");
+		 
+		 //父的构造函数
+		 function Person(name,sex){
+			  this.name=name;
+        this.sex=sex;				
+		 }
+		 Person.prototype.fly=function(){};
+		 
+		 //子的构造函数
+		 function Man(age,name,sex){
+			 Person.call(this,name,sex);
+			 this.age=age;
+		 }
+		 for(var key in Person.prototype){
+			 
+			 Man.prototype[key]=Person.prototype[key];
+		 }
+		 var m1=new Man(18,"强哥","male");
+		 console.dir(m1)
+		 alert(m1 instanceof Person);
+		 
+	</script>
+</html>

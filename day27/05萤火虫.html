@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		  *{
+				padding:0;margin:0;
+			}
+     body{
+		   background:url(img/bg.jpg);
+			 background-size:cover;
+		 }
+		 .worm{
+			 width:15px;
+			 height:15px;
+			 position:absolute;
+			 left:100px;
+			 top:100px;
+			 
+		 }
+		</style>
+		<script src="animate.js"></script>
+	</head>
+	<body >
+   
+	</body>
+	<script>
+     window.onload=function(){
+		   document.onclick=function(){
+			    for(var i=0;i<2;i++){
+					  new Glowworm()
+					}
+			 }
+		 }
+		 function Glowworm(){
+		    this.glowworm=document.createElement("img");
+				this.glowworm.src="img/1.jpg";
+				this.glowworm.className="worm";
+				this.glowworm.style.width= Math.ceil(Math.random()*15)+5+"px";
+				this.glowworm.style.height= this.glowworm.style.width;
+				this.glowworm.style.left= Math.floor(Math.random()*1000)+"px";
+				this.glowworm.style.top= Math.floor(Math.random()*700)+"px";
+				document.body.appendChild(this.glowworm);
+				//this.fly(this);
+				this.fly3();
+
+		 }
+		 Glowworm.prototype.fly=function(that){//传参是一种方法，that永远==this
+			 // that.positionX= Math.floor(Math.random()*1000);
+				// that.positionY= Math.floor(Math.random()*700); 
+				
+			  that.SetPosition();
+				move3(that.glowworm,{left:that.positionX,top:that.positionY},function(){
+					that.fly(that);
+					
+				},100);
+		 }
+		 
+		 Glowworm.prototype.fly2=function(){
+		 	  //console.log(this);
+		 	  var that=this;
+		 	  this.SetPosition();
+				move3(this.glowworm,{left:this.positionX,top:this.positionY},function(){
+					console.log(this)
+					that.fly2();
+					
+				},100);
+		
+		 }
+		 Glowworm.prototype.fly3=function(){//error
+		 	  var that=this;
+		 	  console.log(that);
+		 	  this.SetPosition();
+				move3(this.glowworm,{left:this.positionX,top:this.positionY},this.fly3,100);
+		 
+		 }
+		
+		 Glowworm.prototype.SetPosition=function(){
+			  this.positionX= Math.floor(Math.random()*1000);
+				this.positionY= Math.floor(Math.random()*650); 
+		 }
+	</script>
+</html>

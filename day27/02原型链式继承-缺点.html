@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+  <head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		  *{
+				padding:0;margin:0;
+			}
+
+		</style>
+		<script ></script>
+	</head>
+	<body >
+   
+	</body>
+	<script>
+	   
+      function Person(nick,age){
+			 this.nick=nick;
+			 this.age=age;
+			}
+			//Person.home="武汉";
+			Person.prototype.fly=function(){
+			  alert(this.nick+" is flying");
+			}
+			function Man(sex){
+			  this.sex=sex;
+			}
+			Man.prototype=new Person("冰冰",20);
+			var p1=new Man("girl");
+			p1.nick="嬛嬛";
+			console.dir(p1)
+			//alert(p1.home);
+			//alert(p1.nick+" "+p1.sex);
+			function Girl(){}
+			
+			//alert(typeof p1);
+			alert(p1 instanceof Man);
+			alert(p1 instanceof Person);
+			alert(p1 instanceof Object);
+			//p1.fly();
+	</script>
+</html>

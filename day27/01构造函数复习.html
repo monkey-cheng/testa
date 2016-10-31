@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+  <head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+		  *{
+				padding:0;margin:0;
+			}
+
+		</style>
+		<script ></script>
+	</head>
+	<body >
+   
+	</body>
+	<script>
+	  var age;
+     function Person(){
+		   this.name="小白";
+			 this.age=2;
+			 var nn="aaa";
+		 }
+		 Person();
+		 alert(age);
+		 
+		 
+		 Person.home="武汉";
+		 Person.prototype={
+		   height:20,
+			 run:function(){
+			   alert("running");
+			 }
+		 }
+		 //console.dir(Person)
+		 
+		 var p1=new Person();
+		 console.dir(p1);
+		 // alert(p1.home)
+		 //var p2=new Person();
+		  //console.dir(p1);
+		 // console.dir(p2);
+		 // p1.name="小静";
+		 // p2.name="小强";
+		 // console.dir(p1);
+		 // console.dir(p2);
+		 
+		 //p1.height=100;
+		 // alert(p1.height);
+		 //console.dir(p1);
+		 //alert(p2.height);
+		 
+		 // Person.prototype.height=200;
+		 //p2.__proto__.height=300;
+		 // alert(p1.height);
+		 // alert(p2.height);
+		 
+	</script>
+</html>
